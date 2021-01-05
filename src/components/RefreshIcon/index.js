@@ -3,10 +3,13 @@ import { View, StyleSheet } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { colors } from '../../utils';
 
-const RefreshIcon = ({ fetch }) => {
+const RefreshIcon = ({ fetch, query }) => {
+	const handleRefreshPressed = async () => {
+		await fetch(query);
+	}
   return (
     <View style={styles.refreshIcon} >
-	    <Ionicons onPress={fetch} name="refresh" size={24} color={colors.PRIMARY_COLOR} />
+	    <Ionicons onPress={handleRefreshPressed} name="refresh" size={24} color={colors.PRIMARY_COLOR} />
     </View>
   );
 }
